@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Skills Section</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style id="theme-style">
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --card-bg: #f0f0f0;
+            --card-hover-bg: #e0e0e0;
+            --card-body-bg: #ffffff;
+            --secondary-text-color: #555555;
+        }
+
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        .skill-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            margin-right: 15px;
+            background-color: transparent;
+            animation: iconBounce 2s infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .skill-text h5 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .skill-text span {
+            font-size: 1rem;
+            color: var(--secondary-text-color);
+        }
+
+        .card-body {
+            background-color: var(--card-body-bg);
+            display: none;
+            padding: 15px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .card-header:hover {
+            background-color: var(--card-hover-bg);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: var(--card-body-bg);
+            color: var(--text-color);
+            border: none;
+            font-size: 1rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--card-hover-bg);
+        }
+    </style>
+</head>
+<body>
+<button class="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
+
+<div class="container py-5">
+    <h2 class="mb-4">Skills</h2>
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/html.svg" alt="HTML5 Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>HTML5</h5>
+                <span>Semantics, Forms, Multimedia, API Support</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>HTML5 is the latest version of the Hypertext Markup Language</strong> used for structuring and
+                presenting content on the web. Here's what I know:</p>
+            <ul>
+                <li>Using Semantic Tags like</li>
+                <li>Creating Forms with Validation and Input Types</li>
+                <li>Embedding Multimedia with</li>
+                <li>Integrating APIs such as Geolocation and Web Storage</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/css.svg" alt="CSS3 Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>CSS3</h5>
+                <span>Styling, Flexbox, Grid, Animations</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>CSS3 is the latest version of the Cascading Style Sheets</strong> used for styling web pages and
+                layouts. Here's what I know:</p>
+            <ul>
+                <li>Advanced Styling with Borders, Shadows, and Gradients</li>
+                <li>Responsive Layouts with Flexbox and Grid</li>
+                <li>CSS Animations and Transitions</li>
+                <li>Custom Fonts with `@font-face`</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- JavaScript Card -->
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>JavaScript</h5>
+                <span>ES6+, React, Node.js, Event Loop</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>JavaScript</strong> is a versatile programming language used both on the client and server-side.
+                Here's what I know:</p>
+            <ul>
+                <li>Modern ES6+ Features</li>
+                <li>React for Frontend Development</li>
+                <li>Backend Development with Node.js</li>
+                <li>Understanding the Event Loop</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/bootstrap.svg" alt="Bootstrap Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>Bootstrap5</h5>
+                <span>Grid System, Components, Utilities, Responsiveness</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>Bootstrap is a front-end framework</strong> that helps in building responsive and mobile-first
+                web applications. Here's what I know:</p>
+            <ul>
+                <li>Responsive Layout with Bootstrap Grid System</li>
+                <li>Using Bootstrap Components like Cards, Buttons, and Modals</li>
+                <li>Customizing with Utilities and Theme Colors</li>
+                <li>Building Mobile-First Web Pages</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/git.svg" alt="Git & GitHub Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>Git & GitHub</h5>
+                <span>Version Control, Branching, Collaboration, Repositories</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>Git is a version control system</strong> for tracking changes in source code during software
+                development, and GitHub is a platform for hosting Git repositories. Here's what I know:</p>
+            <ul>
+                <li>Using Git for Version Control and Commit History</li>
+                <li>Branching and Merging with Git</li>
+                <li>Collaborating on GitHub with Pull Requests and Issues</li>
+                <li>Managing Repositories and Using GitHub Actions</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/php.svg" alt="PHP Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>PHP</h5>
+                <span>Server-Side Scripting, MySQL Integration, MVC, OOP</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>PHP is a popular server-side scripting language</strong> designed for web development. Here's
+                what I know:</p>
+            <ul>
+                <li>Building Dynamic Web Pages with PHP</li>
+                <li>Integrating PHP with MySQL Databases</li>
+                <li>Implementing MVC Architecture in PHP Applications</li>
+                <li>Using Object-Oriented Programming (OOP) Concepts in PHP</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/mysql.svg" alt="MySQL Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>MySQL</h5>
+                <span>Database Design, Queries, Indexing, Optimization</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>MySQL is an open-source relational database management system</strong> that uses SQL (Structured
+                Query Language) for data management. Here's what I know:</p>
+            <ul>
+                <li>Designing Relational Databases and Schemas</li>
+                <li>Writing Complex SQL Queries with Joins, Subqueries, and Aggregations</li>
+                <li>Indexing and Optimizing Queries for Performance</li>
+                <li>Using Transactions and ACID Properties</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/sqlite.svg" alt="SQLite Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>SQLite</h5>
+                <span>Database Management, Queries, Transactions, Lightweight</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>SQLite is a C-language library</strong> that implements a small, fast, self-contained SQL
+                database engine. Here's what I know:</p>
+            <ul>
+                <li>Setting up and Managing SQLite Databases</li>
+                <li>Writing SQL Queries for Data Retrieval and Modification</li>
+                <li>Working with Transactions and Atomic Operations</li>
+                <li>Integrating SQLite into Mobile and Web Applications</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/postgresql.svg" alt="PostgreSQL Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>PostgreSQL</h5>
+                <span>Database Management, Advanced Queries, Transactions, Data Integrity</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>PostgreSQL is an open-source relational database</strong> known for its scalability, robustness,
+                and support for advanced data types. Here's what I know:</p>
+            <ul>
+                <li>Setting up and Configuring PostgreSQL Databases</li>
+                <li>Writing Advanced SQL Queries with Joins, Subqueries, and CTEs</li>
+                <li>Implementing Transactions and Maintaining ACID Compliance</li>
+                <li>Optimizing Performance and Using Indexing Techniques</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/lumen.svg" alt="Lumen Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>Lumen</h5>
+                <span>Microservices, API Development, Fast Performance</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>Lumen is a micro-framework</strong> built by the creators of Laravel, optimized for building fast
+                APIs and microservices. Here's what I know:</p>
+            <ul>
+                <li>Building Lightweight Microservices with Lumen</li>
+                <li>Developing RESTful APIs with Fast Performance</li>
+                <li>Routing and Middleware in Lumen</li>
+                <li>Integrating with Laravel Ecosystem (e.g., Eloquent ORM, Redis, Queues)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Laravel Card -->
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/laravel.svg" alt="Laravel Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>Laravel</h5>
+                <span>Routing, Eloquent ORM, Queues, Middleware</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>Laravel is a PHP framework</strong> designed to simplify web application development. Here's what
+                I know:</p>
+            <ul>
+                <li>Advanced Routing Techniques</li>
+                <li>Eloquent ORM and Relationships</li>
+                <li>Custom Middleware Implementation</li>
+                <li>Queue Jobs with Redis</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Docker Card -->
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/docker.svg" alt="Docker Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>Docker</h5>
+                <span>Containerization, Docker Compose, Image Optimization</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>Docker</strong> allows applications to run in isolated environments called containers. Here's
+                what I know:</p>
+            <ul>
+                <li>Creating and Managing Containers</li>
+                <li>Building Custom Docker Images</li>
+                <li>Using Docker Compose for Multi-Container Apps</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/apache.svg" alt="Apache Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>Apache</h5>
+                <span>Web Server, HTTP Protocol, Virtual Hosts</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>Apache is a widely-used open-source web server software</strong> for hosting and serving web content. Here's what I know:</p>
+            <ul>
+                <li>Setting up and Configuring Apache Web Server</li>
+                <li>Managing Virtual Hosts for Multiple Websites</li>
+                <li>Implementing Security Modules (e.g., mod_security)</li>
+                <li>Optimizing Performance with Caching Techniques</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/nginx.svg" alt="Nginx Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>Nginx</h5>
+                <span>Web Server, Reverse Proxy, Load Balancing</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>Nginx is a high-performance web server and reverse proxy</strong> used for hosting websites and managing traffic efficiently. Here's what I know:</p>
+            <ul>
+                <li>Configuring Nginx as a Web Server</li>
+                <li>Setting up Reverse Proxy for Backend Applications</li>
+                <li>Implementing Load Balancing Techniques</li>
+                <li>Enhancing Security with SSL/TLS Configuration</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/redis.svg" alt="Redis Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>Redis</h5>
+                <span>In-Memory Data Store, Caching, Pub/Sub, Persistence</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>Redis is an in-memory key-value store</strong> that is often used for caching and message
+                brokering. Here's what I know:</p>
+            <ul>
+                <li>Using Redis for Caching and Session Storage</li>
+                <li>Implementing Pub/Sub Messaging with Redis</li>
+                <li>Configuring Redis Persistence for Data Durability</li>
+                <li>Optimizing Performance with Redis Data Structures (e.g., Lists, Sets, Hashes)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/rabbitmq.svg" alt="RabbitMQ Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>RabbitMQ</h5>
+                <span>Message Queueing, Pub/Sub, Asynchronous Processing</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>RabbitMQ is a message broker</strong> that facilitates communication between different parts of
+                an application by using queues. Here's what I know:</p>
+            <ul>
+                <li>Setting up RabbitMQ for Asynchronous Message Queuing</li>
+                <li>Implementing Pub/Sub Communication Patterns</li>
+                <li>Managing Queues, Exchanges, and Bindings</li>
+                <li>Integrating RabbitMQ with Laravel, Symfony, or other frameworks</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>Python</h5>
+                <span>Scripting, Web Development, Data Science, Automation</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>Python is a versatile programming language</strong> known for its simplicity and readability.
+                Here's what I know:</p>
+            <ul>
+                <li>Building Web Applications with Flask and Django</li>
+                <li>Data Analysis and Visualization with Pandas, Matplotlib, and Seaborn</li>
+                <li>Automating Tasks and Scripting</li>
+                <li>Working with APIs and Web Scraping</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/djangorest.svg"
+                 alt="Django Rest Framework Icon" class="skill-icon">
+            <div class="skill-text">
+                <h5>Django Rest Framework</h5>
+                <span>API Development, Serialization, Authentication, Viewsets</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>Django Rest Framework (DRF)</strong> is a powerful toolkit for building Web APIs on top of
+                Django. Here's what I know:</p>
+            <ul>
+                <li>Creating RESTful APIs with Django and DRF</li>
+                <li>Serializing Data and Managing Request/Response Cycles</li>
+                <li>Implementing Authentication (e.g., Token-based Authentication)</li>
+                <li>Using Viewsets and Routers for Clean API Endpoints</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/django.svg" alt="Django Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>Django</h5>
+                <span>Web Development, ORM, Templates, Authentication</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>Django is a high-level Python web framework</strong> that encourages rapid development and clean,
+                pragmatic design. Here's what I know:</p>
+            <ul>
+                <li>Building Full-Stack Web Applications with Django</li>
+                <li>Using Django's ORM for Database Models and Queries</li>
+                <li>Template Rendering and Front-End Integration</li>
+                <li>Implementing User Authentication and Authorization</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/graphql.svg" alt="GraphQL Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>GraphQL</h5>
+                <span>Data Query Language, API Optimization, Flexible Queries</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>GraphQL is a flexible and efficient query language</strong> for APIs, enabling precise data fetching. Here's what I know:</p>
+            <ul>
+                <li>Defining Schemas and Types in GraphQL</li>
+                <li>Creating Queries and Mutations</li>
+                <li>Optimizing APIs with GraphQL</li>
+                <li>Implementing Resolvers for Data Fetching</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skill-card">
+        <div class="card-header" onclick="toggleBody(this)">
+            <img src="css/kubernetes.svg" alt="Kubernetes Icon"
+                 class="skill-icon">
+            <div class="skill-text">
+                <h5>Kubernetes</h5>
+                <span>Container Orchestration, Scalability, Deployment Management</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><strong>Kubernetes is an open-source container orchestration platform</strong> that automates deployment, scaling, and management of applications. Here's what I know:</p>
+            <ul>
+                <li>Setting up Kubernetes Clusters</li>
+                <li>Managing Deployments and Pods</li>
+                <li>Scaling Applications Horizontally</li>
+                <li>Using ConfigMaps and Secrets</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<!-- JavaScript -->
+<script>
+    function toggleBody(header) {
+        const body = header.nextElementSibling;
+        body.style.display = body.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function toggleTheme() {
+        const root = document.documentElement;
+        const isDark = root.style.getPropertyValue('--bg-color') === '#121212';
+
+        root.style.setProperty('--bg-color', isDark ? '#ffffff' : '#121212');
+        root.style.setProperty('--text-color', isDark ? '#000000' : '#ffffff');
+        root.style.setProperty('--card-bg', isDark ? '#f0f0f0' : '#1e1e1e');
+        root.style.setProperty('--card-hover-bg', isDark ? '#e0e0e0' : '#333333');
+        root.style.setProperty('--card-body-bg', isDark ? '#ffffff' : '#292929');
+        root.style.setProperty('--secondary-text-color', isDark ? '#555555' : '#cccccc');
+    }
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
